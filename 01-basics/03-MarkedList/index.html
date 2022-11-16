@@ -16,12 +16,11 @@
         <div class="form-group">
           <input type="search" v-model="curEmailReq" />
         </div>
-        <ul v-for="(email, idx) in emails">
-          <li :key="idx" :class="filteredEmails.indexOf(email) !== -1 ? 'marked' : ''">{{ email }}</li>
+        <ul>
+          <li v-for="(email, idx) in filteredEmails" :key="idx" :class="{ marked : email.marked }">{{ email.text }}</li>
         </ul>
       </div>
     </div>
-
     <script type="module" src="./script.js"></script>
   </body>
 </html>

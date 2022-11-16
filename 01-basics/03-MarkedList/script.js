@@ -33,18 +33,18 @@ const App = defineComponent({
   name: 'App',
   data() {
     return {
-      emails: emails,
       curEmailReq: '',
     };
   },
 
   computed: {
     filteredEmails() {
-      let res = [];
-      if (this.curEmailReq !== '') {
-        res = this.emails.filter((email) => email.toLowerCase().startsWith(this.curEmailReq));
-      }
-      return res;
+      return emails.map((el) => {
+        return (el = {
+          text: el,
+          marked: this.curEmailReq !== '' && el.toLowerCase().startsWith(this.curEmailReq),
+        });
+      });
     },
   },
 });
